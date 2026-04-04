@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Träningsplan – Ängby P17 Grön</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a7a3c;
+    --green-light: #e8f5ee;
+    --green-mid: #2e9e52;
+    --green-dark: #0f4f26;
+    --gold: #f0b429;
+    --gold-light: #fff8e6;
+    --text: #1a1a1a;
+    --text-muted: #5a6370;
+    --surface: #ffffff;
+    --bg: #f4f6f4;
+    --border: #d4e0d8;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--green-dark);
+    color: white;
+    padding: 1.25rem 1.25rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .crest {
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--green-dark);
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+
+  header h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+
+  header p.subtitle {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .tab-btn:hover { color: rgba(255,255,255,0.85); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .info-card {
+    background: var(--green-dark);
+    color: white;
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .info-card h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.6rem;
+  }
+
+  .info-meta span { display: flex; align-items: center; gap: 5px; }
+
+  .info-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+  }
+
+  .exercise-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+
+  .exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.95rem 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.1s;
+  }
+
+  .exercise-header:hover { background: var(--green-light); }
+
+  .exercise-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--green-light);
+    color: var(--green);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .exercise-header-text { flex: 1; }
+
+  .exercise-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .exercise-meta-line {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+    color: var(--text-muted);
+  }
+
+  .exercise-card.open .chevron { transform: rotate(180deg); }
+  .exercise-card.open .exercise-number { background: var(--green); color: white; }
+
+  .exercise-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .exercise-body-inner {
+    padding: 0 1.1rem 1.1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .exercise-description {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0.75rem 0;
+  }
+
+  .pitch-container {
+    background: var(--green-light);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pitch-container svg { max-width: 100%; height: auto; }
+
+  .coaching-points { margin: 0.75rem 0 0; }
+
+  .coaching-points h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--green);
+    margin-bottom: 0.4rem;
+  }
+
+  .coaching-points ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .coaching-points li {
+    font-size: 0.85rem;
+    color: var(--text);
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.45;
+  }
+
+  .coaching-points li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--green-mid);
+    font-size: 0.75rem;
+    top: 1px;
+  }
+
+  .exercise-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 0.75rem;
+  }
+
+  .ex-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--gold-light);
+    color: #7a5500;
+    border: 1px solid #f0b42955;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .ex-link:hover { background: #fdefc8; }
+  .ex-link svg { width: 13px; height: 13px; }
+
+  .pitch-placeholder {
+    background: var(--green-light);
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0.75rem 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="crest">ÄIF</div>
+    <div>
+      <h1>Träningsplan Ängby P17 Grön</h1>
+      <p class="subtitle">Säsong 2026 · U9</p>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">Pass 1</button>
+    <button class="tab-btn" onclick="switchTab(1)">Pass 2</button>
+    <button class="tab-btn" onclick="switchTab(2)">Pass 3</button>
+    <button class="tab-btn" onclick="switchTab(3)">Pass 4</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- PASS 1 -->
+  <div class="tab-panel active" id="panel-0">
+    <div class="info-card">
+      <h2>Pass 1: Teknisk grund</h2>
+      <div class="info-meta">
+        <span>⏱ 60 min</span>
+        <span>👟 8-16 spelare</span>
+      </div>
+      <p>Fokus på bollkontroll och passningar i korta avstånd. Passa på att jobba med båda fötterna. Avsluta passet med ett litet spel.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-0-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-0-1')">
+        <div class="exercise-number">1</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Uppvärmning – Driva med boll</div>
+          <div class="exercise-meta-line">10 min · Individuell teknik</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Spelarna ställer upp med varsin boll på ena linjen och driver till motsatt sida. Byt sätt efter 1-2 ggr. Utsida, insida-utsida, sula, pingvin, utsida-stopp, översteg-utsida åt andra hållet, tic-toc roll, saxen.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Bollen nära foten hela tiden</li>
+              <li>Titta upp – inte bara på bollen</li>
+              <li>Använd båda fötterna</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-0-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-0-2')">
+        <div class="exercise-number">2</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Passningsövning – Trianglar</div>
+          <div class="exercise-meta-line">15 min · Passningsteknik</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Tre spelare bildar en triangel (ca 8 m sidor). Passa runt med insidan av foten. Nästa steg: första touch mot nästa hörn, passa sedan.</p>
+          <div class="pitch-container">
+<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<!-- Grass -->
+<rect x="40" y="20" width="600" height="385" rx="10" fill="#c8e6c9" opacity="0.32"/>
+<!-- Triangle outline between cones (dashed) -->
+<line x1="340" y1="110" x2="168" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
+<line x1="340" y1="110" x2="512" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
+<line x1="168" y1="322" x2="512" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
+<!-- CONE A (top-centre) -->
+<polygon points="340,98 330,115 350,115" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="328" y1="115" x2="352" y2="115" stroke="#c8860a" stroke-width="1.5"/>
+<!-- Player A: above cone -->
+<circle cx="340" cy="70" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="340" y="75" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
+<!-- CONE B (bottom-left) -->
+<polygon points="168,310 158,327 178,327" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="156" y1="327" x2="180" y2="327" stroke="#c8860a" stroke-width="1.5"/>
+<!-- Player B: left of cone -->
+<circle cx="134" cy="328" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="134" y="333" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
+<!-- CONE C (bottom-right) -->
+<polygon points="512,310 502,327 522,327" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="500" y1="327" x2="524" y2="327" stroke="#c8860a" stroke-width="1.5"/>
+<!-- Player C: right of cone -->
+<circle cx="546" cy="328" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="546" y="333" text-anchor="middle" font-size="13" font-weight="500" fill="white">C</text>
+<!-- PASS ARROWS -->
+<!-- A → B -->
+<path d="M326 83 L150 316" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.8"/>
+<rect x="210" y="180" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="219" y="193" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
+<!-- B → C -->
+<path d="M151 334 L529 334" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.8"/>
+<rect x="331" y="340" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="340" y="353" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
+<!-- C → A -->
+<path d="M530 316 L354 83" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.8"/>
+<rect x="455" y="180" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="464" y="193" text-anchor="middle" font-size="11" font-weight="500" fill="white">3</text>
+<!-- Ball near player A -->
+<circle cx="323" cy="86" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
+<circle cx="323" cy="86" r="3" fill="#ccc" opacity="0.5"/>
+<!-- LEGEND -->
+<rect x="488" y="28" width="146" height="56" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
+<line x1="500" y1="48" x2="530" y2="48" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text font-family="sans-serif" font-size="12" x="538" y="52" fill="#1b5e20">Passning</text>
+<polygon points="515,61 510,71 520,71" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<text font-family="sans-serif" font-size="12" x="538" y="72" fill="#1b5e20">Kon</text>
+</svg>
+          </div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Vriden fot vid passning – insidan fram</li>
+              <li>Rörelsen mot bollen</li>
+              <li>Kommunicera – "JA!" när du vill ha bollen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-0-3">
+      <div class="exercise-header" onclick="toggleExercise('ex-0-3')">
+        <div class="exercise-number">3</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Rondo 4v1</div>
+          <div class="exercise-meta-line">15 min · Bollhållning</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Fyra spelare på utsidan, en i mitten. Håll bollen undan mittspelaren. Den som tappar bollen går in i mitten.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Spela snabbt – max två touches</li>
+              <li>Rörelse och friläggning längs kanten</li>
+              <li>Mittspelaren: kompakt och aggressiv press</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-0-4">
+      <div class="exercise-header" onclick="toggleExercise('ex-0-4')">
+        <div class="exercise-number">4</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Avslutande spel – Litet format</div>
+          <div class="exercise-meta-line">15 min · Matchspel</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">3v3 eller 4v4 på liten plan med mål. Fritt spel – låt barnen hitta lösningar. Tränaren coachar utifrån dagens tema.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Tillämpa dagens teknik i spelet</li>
+              <li>Uppmuntra dribbel och risktagning</li>
+              <li>Positiv feedback – fokus på försök</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASS 2 -->
+  <div class="tab-panel" id="panel-1">
+    <div class="info-card">
+      <h2>Pass 2 – Avslut och målvakt</h2>
+      <div class="info-meta">
+        <span>⏱ 60 min</span>
+        <span>👟 9 spelare</span>
+        <span>📍 Plan A</span>
+      </div>
+      <p>Fokus på avslut mot mål och samarbete med målvakt. Träna på att skjuta med rätt teknik och hitta rätt hörn.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-1-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-1-1')">
+        <div class="exercise-number">1</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Uppvärmning – Jonglering</div>
+          <div class="exercise-meta-line">10 min · Bollkänsla</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Varje spelare jonglerar ensam. Räkna rekord – hur många gånger i rad? Uppmuntra att använda lår och huvud också.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Midt på bollen – inte kanten</li>
+              <li>Avslappnade axlar</li>
+              <li>Hitta rytmen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-1-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-1-2')">
+        <div class="exercise-number">2</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Avslut efter passning</div>
+          <div class="exercise-meta-line">15 min · Skjutteknik</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Spelare A passar till spelare B som tagit rörelse mot mål. B tar emot och avslutar. Byt positioner efter varje omgång.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Stödben bredvid bollen</li>
+              <li>Vridning i höften vid avslut</li>
+              <li>Sikta – välj hörn</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-1-3">
+      <div class="exercise-header" onclick="toggleExercise('ex-1-3')">
+        <div class="exercise-number">3</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">1v1 mot målvakt</div>
+          <div class="exercise-meta-line">15 min · Avslut & målvakt</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Spelare startar 20 m från mål, dribblar fram och avslutar mot målvakt. Fokus: lugn inför avslut, välj sida tidigt.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Sänk farten inför avslut</li>
+              <li>Blicka upp – se var målvakten står</li>
+              <li>Följ upp returer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-1-4">
+      <div class="exercise-header" onclick="toggleExercise('ex-1-4')">
+        <div class="exercise-number">4</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Avslutande spel</div>
+          <div class="exercise-meta-line">15 min · Matchspel</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Fritt spel 4v4 med mål. Poäng räknas dubbelt om laget skjuter inom 5 sekunder efter att ha tagit bollen.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Snabbt spel framåt</li>
+              <li>Var modig – skjut!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASS 3 -->
+  <div class="tab-panel" id="panel-2">
+    <div class="info-card">
+      <h2>Pass 3 – Försvar och press</h2>
+      <div class="info-meta">
+        <span>⏱ 60 min</span>
+        <span>👟 9 spelare</span>
+        <span>📍 Plan B</span>
+      </div>
+      <p>Introduktion till att försvara som ett lag. Enkel press i rätt situation och hur man vinner boll.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-2-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-2-1')">
+        <div class="exercise-number">1</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Uppvärmning – Tagglek med boll</div>
+          <div class="exercise-meta-line">10 min · Rörlighet</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Alla dribblar i ett område. En spelare utan boll försöker knuffa ut andras bollar. Om din boll åker ut är du nästa "taggen".</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Skydda bollen med kroppen</li>
+              <li>Håll koll på läget runt dig</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-2-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-2-2')">
+        <div class="exercise-number">2</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">1v1 försvar – rätt vinkel</div>
+          <div class="exercise-meta-line">15 min · Försvarsteknik</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">En anfallare försöker nå en linje 15 m bort. Försvararen bromsar och styr anfallaren åt sidan. Byt roller.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Sänk tyngdpunkten, korta steg</li>
+              <li>Styr anfallaren mot kanten</li>
+              <li>Vänta på rätt tillfälle att ta bollen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-2-3">
+      <div class="exercise-header" onclick="toggleExercise('ex-2-3')">
+        <div class="exercise-number">3</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">2v2 – kompakt press</div>
+          <div class="exercise-meta-line">15 min · Lagförsvar</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Två försvarare mot två anfallare i ett litet område. Försvararlaget jobbar tillsammans: en pressar, en täcker.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Kommunicera – "jag tar!", "täck!"</li>
+              <li>Håll ihop – inga stora luckor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-2-4">
+      <div class="exercise-header" onclick="toggleExercise('ex-2-4')">
+        <div class="exercise-number">4</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Avslutande spel – press-regler</div>
+          <div class="exercise-meta-line">15 min · Matchspel</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">4v4 med regeln att laget utan boll alltid ska ha minst en spelare som aktivt pressar bollinnehavaren.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Press direkt vid bollförlust</li>
+              <li>Samarbeta – ingen försvarar ensam</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASS 4 -->
+  <div class="tab-panel" id="panel-3">
+    <div class="info-card">
+      <h2>Pass 4 – Lek och matchspel</h2>
+      <div class="info-meta">
+        <span>⏱ 60 min</span>
+        <span>👟 9 spelare</span>
+        <span>📍 Plan A</span>
+      </div>
+      <p>Roliga tävlingar och mycket matchspel. Låt barnen ta egna beslut och njuta av spelet.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-3-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-3-1')">
+        <div class="exercise-number">1</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Uppvärmning – Målvaktslek</div>
+          <div class="exercise-meta-line">10 min · Rolig rörelse</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Tränaren slår bollar mot mål, spelarna turas om att rädda. Lägg till utmaningar: räddning med höger hand, hopp, etc.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Kul stämning – heja varandra!</li>
+              <li>Fokus och reaktion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-3-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-3-2')">
+        <div class="exercise-number">2</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Tävling – Precisionsskjutning</div>
+          <div class="exercise-meta-line">15 min · Avslut</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Skjut mot markeringar i hörnen på mål. Poäng för träff. Tre skott vardera – vem får flest poäng?</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Ta sig tid – sikta ordentligt</li>
+              <li>Håll ner skottet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-3-3">
+      <div class="exercise-header" onclick="toggleExercise('ex-3-3')">
+        <div class="exercise-number">3</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Matchspel 1 – 3v3</div>
+          <div class="exercise-meta-line">15 min · Spel</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Två matcher parallellt på halva planen. Fritt spel – tränaren coachar från sidan med positiv feedback.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Uppmuntra risktagning</li>
+              <li>Fira mål och bra aktioner</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-3-4">
+      <div class="exercise-header" onclick="toggleExercise('ex-3-4')">
+        <div class="exercise-number">4</div>
+        <div class="exercise-header-text">
+          <div class="exercise-title">Matchspel 2 – Stor plan</div>
+          <div class="exercise-meta-line">15 min · Spel</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Hela gruppen spelar på stor plan med inbytare. Avsluta passet med en gemensam genomgång och beröm.</p>
+          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Alla får speltid</li>
+              <li>Lyft det positiva från hela passet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function switchTab(index) {
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.tab-panel').forEach((panel, i) => {
+    panel.classList.toggle('active', i === index);
+  });
+}
+
+function toggleExercise(id) {
+  const card = document.getElementById(id);
+  const body = card.querySelector('.exercise-body');
+  const isOpen = card.classList.contains('open');
+
+  if (isOpen) {
+    body.style.maxHeight = '0';
+    card.classList.remove('open');
+  } else {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    card.classList.add('open');
+    setTimeout(() => { body.style.maxHeight = 'none'; }, 360);
+  }
+}
+</script>
+</body>
+</html>
