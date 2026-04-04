@@ -1,0 +1,12 @@
+GitHub / Claude deployment
+Om du redigerar i VS Code
+
+git add practiceSession.html
+git commit -m "Beskriv vad du ändrade"
+git push
+
+Om jag redigerar filen här i Claude:
+
+Ladda ner den uppdaterade filen från Claude
+Ersätt din lokala fil med den nya
+Kör git add, git commit, git push som ovan
