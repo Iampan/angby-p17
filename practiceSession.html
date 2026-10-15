@@ -297,6 +297,31 @@
   .ex-link:hover { background: #fdefc8; }
   .ex-link svg { width: 13px; height: 13px; }
 
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 1.25rem 0 0.75rem;
+  }
+
+  .section-divider h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--green);
+    white-space: nowrap;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--green-light);
+    border-radius: 2px;
+  }
+
   .pitch-placeholder {
     background: var(--green-light);
     border: 1.5px dashed var(--border);
@@ -320,366 +345,29 @@
     </div>
   </div>
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab(0)">Pass 1</button>
-    <button class="tab-btn" onclick="switchTab(1)">Pass 2</button>
-    <button class="tab-btn" onclick="switchTab(2)">Pass 3</button>
-    <button class="tab-btn" onclick="switchTab(3)">Pass 4</button>
+    <button class="tab-btn active" onclick="switchTab(0)">Uppvärmning</button>
+    <button class="tab-btn" onclick="switchTab(1)">Passningar</button>
+    <button class="tab-btn" onclick="switchTab(2)">1mot1</button>
+    <button class="tab-btn" onclick="switchTab(3)">Avslut/skott</button>
+    <button class="tab-btn" onclick="switchTab(4)">Possession</button>
+    <button class="tab-btn" onclick="switchTab(5)">Smålagsspel</button>
+    <button class="tab-btn" onclick="switchTab(6)">Lekar</button>
   </div>
 </header>
 
 <main>
 
-  <!-- PASS 1 -->
+  <!-- UPPVÄRMNING -->
   <div class="tab-panel active" id="panel-0">
     <div class="info-card">
-      <h2>Pass 1: Teknisk grund</h2>
-      <div class="info-meta">
-        <span>⏱ 60 min</span>
-        <span>👟 8-16 spelare</span>
-      </div>
-      <p>Fokus på bollkontroll och passningar i korta avstånd. Passa på att jobba med båda fötterna. Avsluta passet med ett litet spel.</p>
+      <h2>Uppvärmning</h2>
+      <p>Övningar för uppvärmning med och utan boll.</p>
     </div>
 
-    <div class="exercise-card" id="ex-0-1">
-      <div class="exercise-header" onclick="toggleExercise('ex-0-1')">
-        <div class="exercise-number">1</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Uppvärmning – Driva med boll</div>
-          <div class="exercise-meta-line">10 min · Individuell teknik</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Spelarna ställer upp med varsin boll på ena linjen och driver till motsatt sida. Byt sätt efter 1-2 ggr. Utsida, insida-utsida, sula, pingvin, utsida-stopp, översteg-utsida åt andra hållet, tic-toc roll, saxen.</p>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Bollen nära foten hela tiden</li>
-              <li>Titta upp – inte bara på bollen</li>
-              <li>Använd båda fötterna</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="section-divider"><h3>Med boll</h3></div>
 
-    <div class="exercise-card" id="ex-0-2">
-      <div class="exercise-header" onclick="toggleExercise('ex-0-2')">
-        <div class="exercise-number">2</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Passningsövning – Trianglar</div>
-          <div class="exercise-meta-line">15 min · Passningsteknik</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Tre spelare bildar en triangel (ca 8 m sidor). Passa runt med insidan av foten. Nästa steg: första touch mot nästa hörn, passa sedan.</p>
-          <div class="pitch-container">
-<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-<!-- Grass -->
-<rect x="40" y="20" width="600" height="385" rx="10" fill="#c8e6c9" opacity="0.32"/>
-<!-- Triangle outline between cones (dashed) -->
-<line x1="340" y1="110" x2="168" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
-<line x1="340" y1="110" x2="512" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
-<line x1="168" y1="322" x2="512" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
-<!-- CONE A (top-centre) -->
-<polygon points="340,98 330,115 350,115" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="328" y1="115" x2="352" y2="115" stroke="#c8860a" stroke-width="1.5"/>
-<!-- Player A: above cone -->
-<circle cx="340" cy="70" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="340" y="75" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
-<!-- CONE B (bottom-left) -->
-<polygon points="168,310 158,327 178,327" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="156" y1="327" x2="180" y2="327" stroke="#c8860a" stroke-width="1.5"/>
-<!-- Player B: left of cone -->
-<circle cx="134" cy="328" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="134" y="333" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
-<!-- CONE C (bottom-right) -->
-<polygon points="512,310 502,327 522,327" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="500" y1="327" x2="524" y2="327" stroke="#c8860a" stroke-width="1.5"/>
-<!-- Player C: right of cone -->
-<circle cx="546" cy="328" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="546" y="333" text-anchor="middle" font-size="13" font-weight="500" fill="white">C</text>
-<!-- PASS ARROWS -->
-<!-- A → B -->
-<path d="M326 83 L150 316" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.8"/>
-<rect x="210" y="180" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
-<text x="219" y="193" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
-<!-- B → C -->
-<path d="M151 334 L529 334" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.8"/>
-<rect x="331" y="340" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
-<text x="340" y="353" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
-<!-- C → A -->
-<path d="M530 316 L354 83" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.8"/>
-<rect x="455" y="180" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
-<text x="464" y="193" text-anchor="middle" font-size="11" font-weight="500" fill="white">3</text>
-<!-- Ball near player A -->
-<circle cx="323" cy="86" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
-<circle cx="323" cy="86" r="3" fill="#ccc" opacity="0.5"/>
-<!-- LEGEND -->
-<rect x="488" y="28" width="146" height="56" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
-<line x1="500" y1="48" x2="530" y2="48" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow)"/>
-<text font-family="sans-serif" font-size="12" x="538" y="52" fill="#1b5e20">Passning</text>
-<polygon points="515,61 510,71 520,71" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<text font-family="sans-serif" font-size="12" x="538" y="72" fill="#1b5e20">Kon</text>
-</svg>
-          </div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Vriden fot vid passning – insidan fram</li>
-              <li>Rörelsen mot bollen</li>
-              <li>Kommunicera – "JA!" när du vill ha bollen</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-0-3">
-      <div class="exercise-header" onclick="toggleExercise('ex-0-3')">
-        <div class="exercise-number">3</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Passningsövning – Trianglar 2</div>
-          <div class="exercise-meta-line">15 min · Passning + förflyttning</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">3 spelare ställer upp i en kvadrat med 4 koner – en kon fri. Spelare 1 passar nästa spelare och förflyttar sig sedan till den fria konen. Spelare 2 tar emot, passar vidare och förflyttar sig till fri kon, osv.</p>
-          <div class="pitch-container">
-<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-  <marker id="arrow-move3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-<rect x="40" y="20" width="600" height="440" rx="10" fill="#c8e6c9" opacity="0.32"/>
-<polygon points="190,78 180,95 200,95" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="178" y1="95" x2="202" y2="95" stroke="#c8860a" stroke-width="1.5"/>
-<polygon points="490,78 480,95 500,95" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="478" y1="95" x2="502" y2="95" stroke="#c8860a" stroke-width="1.5"/>
-<polygon points="190,358 180,375 200,375" fill="#aaa" stroke="#888" stroke-width="1"/>
-<line x1="178" y1="375" x2="202" y2="375" stroke="#888" stroke-width="1.5"/>
-<text font-family="sans-serif" font-size="11" x="190" y="395" text-anchor="middle" fill="#666">Fri kon</text>
-<polygon points="490,358 480,375 500,375" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="478" y1="375" x2="502" y2="375" stroke="#c8860a" stroke-width="1.5"/>
-<rect x="190" y="90" width="300" height="280" rx="4" fill="none" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
-<circle cx="162" cy="68" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="162" y="73" text-anchor="middle" font-size="13" font-weight="500" fill="white">1</text>
-<circle cx="185" cy="74" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
-<circle cx="185" cy="74" r="3" fill="#ccc" opacity="0.5"/>
-<circle cx="518" cy="68" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="518" y="73" text-anchor="middle" font-size="13" font-weight="500" fill="white">2</text>
-<circle cx="518" cy="392" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="518" y="397" text-anchor="middle" font-size="13" font-weight="500" fill="white">3</text>
-<path d="M180 72 L498 72" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow3)" opacity="0.85"/>
-<rect x="323" y="56" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
-<text x="332" y="69" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
-<path d="M526 88 L526 372" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow3)" opacity="0.85"/>
-<rect x="530" y="216" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
-<text x="539" y="229" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
-<path d="M162 87 L175 355" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-move3)" opacity="0.85"/>
-<rect x="124" y="207" width="18" height="18" rx="9" fill="#e65100" opacity="0.9"/>
-<text x="133" y="220" text-anchor="middle" font-size="11" font-weight="500" fill="white">A</text>
-<path d="M500 55 Q340 42 208 55" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-move3)" opacity="0.85"/>
-<rect x="337" y="36" width="18" height="18" rx="9" fill="#e65100" opacity="0.9"/>
-<text x="346" y="49" text-anchor="middle" font-size="11" font-weight="500" fill="white">B</text>
-<rect x="44" y="410" width="370" height="42" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
-<line x1="56" y1="431" x2="80" y2="431" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow3)"/>
-<text font-family="sans-serif" font-size="12" x="86" y="435" fill="#1b5e20">Passning</text>
-<line x1="170" y1="431" x2="194" y2="431" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-move3)"/>
-<text font-family="sans-serif" font-size="12" x="200" y="435" fill="#1b5e20">Förflyttning (mot fri kon)</text>
-<polygon points="340,422 335,432 345,432" fill="#aaa" stroke="#888" stroke-width="1"/>
-<text font-family="sans-serif" font-size="12" x="352" y="435" fill="#666">Fri kon</text>
-</svg>
-          </div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Passa och rör dig direkt – ingen väntan</li>
-              <li>Ta emot bollen i rörelse</li>
-              <li>Kommunicera – "JA!" när du är redo</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-0-4">
-      <div class="exercise-header" onclick="toggleExercise('ex-0-4')">
-        <div class="exercise-number">4</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Passningsövning 2&2</div>
-          <div class="exercise-meta-line">15 min · Passningar mellan två spelare</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Två spelare står mittemot varandra med varsin kon, ca 2.5 m mellan. Passa bollen rakt till motspelaren, ta emot och rör dig runt din kon – som ett evigt kretslopp runt konerna.</p>
-          <div class="pitch-container">
-<svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <marker id="arrow4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-  <marker id="arrow-move4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-<rect x="40" y="20" width="600" height="340" rx="10" fill="#c8e6c9" opacity="0.32"/>
-<polygon points="220,190 210,207 230,207" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="208" y1="207" x2="232" y2="207" stroke="#c8860a" stroke-width="1.5"/>
-<polygon points="460,190 450,207 470,207" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
-<line x1="448" y1="207" x2="472" y2="207" stroke="#c8860a" stroke-width="1.5"/>
-<line x1="232" y1="198" x2="448" y2="198" stroke="#5a9a6a" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"/>
-<text font-family="sans-serif" font-size="11" x="340" y="194" text-anchor="middle" fill="#2e7d32" opacity="0.7">~2.5 m</text>
-<circle cx="220" cy="280" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="220" y="285" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
-<circle cx="244" cy="280" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
-<circle cx="244" cy="280" r="3" fill="#ccc" opacity="0.5"/>
-<path d="M252 280 L436 280" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow4)" opacity="0.9"/>
-<rect x="326" y="266" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
-<text x="335" y="279" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
-<circle cx="460" cy="280" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="460" y="285" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
-<path d="M208 268 Q170 230 170 190 Q170 150 208 115" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move4)" opacity="0.9"/>
-<path d="M472 268 Q510 230 510 190 Q510 150 472 115" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move4)" opacity="0.9"/>
-<circle cx="220" cy="100" r="18" fill="#1a7a3c" stroke="white" stroke-width="2" opacity="0.45"/>
-<text x="220" y="105" text-anchor="middle" font-size="13" font-weight="500" fill="white" opacity="0.6">A</text>
-<circle cx="460" cy="100" r="18" fill="#1a7a3c" stroke="white" stroke-width="2" opacity="0.45"/>
-<text x="460" y="105" text-anchor="middle" font-size="13" font-weight="500" fill="white" opacity="0.6">B</text>
-<path d="M440 100 L240 100" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrow4)" opacity="0.5"/>
-<rect x="326" y="84" width="18" height="18" rx="9" fill="#1565c0" opacity="0.5"/>
-<text x="335" y="97" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
-<rect x="44" y="328" width="360" height="26" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
-<line x1="56" y1="341" x2="80" y2="341" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow4)"/>
-<text font-family="sans-serif" font-size="11" x="86" y="345" fill="#1b5e20">Passning</text>
-<line x1="172" y1="341" x2="196" y2="341" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move4)"/>
-<text font-family="sans-serif" font-size="11" x="202" y="345" fill="#1b5e20">Rörelse runt kon</text>
-</svg>
-          </div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Passa och rör dig direkt – ingen väntan</li>
-              <li>Ta emot bollen i rörelse</li>
-              <li>Håll ett jämnt tempo i kretsloppet</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-0-6">
-      <div class="exercise-header" onclick="toggleExercise('ex-0-6')">
-        <div class="exercise-number">6</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Rondo 4v1</div>
-          <div class="exercise-meta-line">15 min · Bollhållning</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Fyra spelare på utsidan, en i mitten. Håll bollen undan mittspelaren. Den som tappar bollen går in i mitten.</p>
-          <div class="pitch-container">
-<svg width="100%" viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-<rect x="40" y="30" width="600" height="400" rx="10" fill="#c8e6c9" opacity="0.32"/>
-<rect x="190" y="90" width="300" height="280" rx="4" fill="none" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.6"/>
-<circle cx="340" cy="72" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="340" y="77" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
-<circle cx="172" cy="230" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="172" y="235" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
-<circle cx="340" cy="388" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="340" y="393" text-anchor="middle" font-size="13" font-weight="500" fill="white">C</text>
-<circle cx="508" cy="230" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
-<text x="508" y="235" text-anchor="middle" font-size="13" font-weight="500" fill="white">D</text>
-<circle cx="340" cy="230" r="18" fill="#c0392b" stroke="white" stroke-width="2"/>
-<text x="340" y="235" text-anchor="middle" font-size="13" font-weight="500" fill="white">M</text>
-<path d="M323 82 L190 216" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow2)" opacity="0.75"/>
-<path d="M190 248 L323 374" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow2)" opacity="0.75" stroke-dasharray="6 4"/>
-<circle cx="318" cy="76" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
-<circle cx="318" cy="76" r="3" fill="#ccc" opacity="0.5"/>
-<path d="M340 212 L340 108" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow2)" opacity="0.8"/>
-<rect x="468" y="36" width="158" height="90" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
-<circle cx="484" cy="58" r="9" fill="#1a7a3c" stroke="white" stroke-width="1.5"/>
-<text font-family="sans-serif" font-size="12" x="500" y="62" fill="#1b5e20">Yterspelare (A–D)</text>
-<circle cx="484" cy="82" r="9" fill="#c0392b" stroke="white" stroke-width="1.5"/>
-<text font-family="sans-serif" font-size="12" x="500" y="86" fill="#1b5e20">Mittspelare (M)</text>
-<line x1="474" y1="104" x2="496" y2="104" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow2)"/>
-<text font-family="sans-serif" font-size="12" x="500" y="108" fill="#1b5e20">Passning</text>
-</svg>
-          </div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Spela snabbt – max två touches</li>
-              <li>Rörelse och friläggning längs kanten</li>
-              <li>Mittspelaren: kompakt och aggressiv press</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-0-7">
-      <div class="exercise-header" onclick="toggleExercise('ex-0-7')">
-        <div class="exercise-number">7</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Avslutande spel – Litet format</div>
-          <div class="exercise-meta-line">15 min · Matchspel</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">3v3 eller 4v4 på liten plan med mål. Fritt spel – låt barnen hitta lösningar. Tränaren coachar utifrån dagens tema.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Tillämpa dagens teknik i spelet</li>
-              <li>Uppmuntra dribbel och risktagning</li>
-              <li>Positiv feedback – fokus på försök</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PASS 2 -->
-  <div class="tab-panel" id="panel-1">
-    <div class="info-card">
-      <h2>Pass 2 – Avslut och målvakt</h2>
-      <div class="info-meta">
-        <span>⏱ 60 min</span>
-        <span>👟 8-16 spelare</span>
-      </div>
-      <p>Fokus på avslut mot mål och samarbete med målvakt. Träna på att skjuta med rätt teknik och hitta rätt hörn.</p>
-    </div>
-
-    <div class="exercise-card" id="ex-1-1">
-      <div class="exercise-header" onclick="toggleExercise('ex-1-1')">
-        <div class="exercise-number">1</div>
+    <div class="exercise-card" id="ex-5-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-5-2')">
         <div class="exercise-header-text">
           <div class="exercise-title">Uppvärmning – Driva med boll i yta</div>
           <div class="exercise-meta-line">15 min · Bollkontroll</div>
@@ -702,9 +390,349 @@
       </div>
     </div>
 
-    <div class="exercise-card" id="ex-1-2">
-      <div class="exercise-header" onclick="toggleExercise('ex-1-2')">
-        <div class="exercise-number">2</div>
+    <div class="exercise-card" id="ex-5-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-5-1')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Uppvärmning – Driva med boll</div>
+          <div class="exercise-meta-line">10 min · Individuell teknik</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Spelarna ställer upp med varsin boll på ena linjen och driver till motsatt sida. Byt sätt efter 1-2 ggr. Utsida, insida-utsida, sula, pingvin, utsida-stopp, översteg-utsida åt andra hållet, tic-toc roll, saxen.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Bollen nära foten hela tiden</li>
+              <li>Titta upp – inte bara på bollen</li>
+              <li>Använd båda fötterna</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="exercise-card" id="ex-upp-3">
+      <div class="exercise-header" onclick="toggleExercise('ex-upp-3')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Passningsringen</div>
+          <div class="exercise-meta-line">Uppvärmning · Med boll</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Drygt hälften av spelarna bildar en stor ring med varsin boll. Övriga spelare stannar i ringen. Spelare utan boll möter spelare med boll, ber om passning och passar tillbaka. Därefter möter de en annan ledig spelare med boll. Kombinera med att passa med "fel fot" och passa bollen i luften (använd händerna). Byt plats på spelarna efter en stund.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Kommunicera – be om bollen tydligt</li>
+              <li>Titta upp och hitta nästa lediga spelare direkt</li>
+              <li>Träna på svagare foten</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-upp-4">
+      <div class="exercise-header" onclick="toggleExercise('ex-upp-4')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Vem är rädd för Zlatan?</div>
+          <div class="exercise-meta-line">Uppvärmning · Med boll</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Alla spelare ställer upp på kortlinjen med varsin boll. En spelare står i mitten av planen utan boll. Den i mitten ropar "Vem är rädd för Zlatan?" och de andra svarar "Inte jag!" – då ska spelarna med boll transportera sin boll till andra sidan planen utan att bli fångade av mittspelaren. Den som blir fångad byter plats med mittspelaren.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Håll bollen nära foten – svårt att fånga om du har kontroll</li>
+              <li>Titta upp och välj rätt väg</li>
+              <li>Använd finter och tempoväxling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"><h3>Utan boll</h3></div>
+
+    <p style="color:var(--text-muted);font-size:0.88rem;padding:0.5rem 0.25rem">Inga övningar tillagda än.</p>
+
+  </div>
+
+  <!-- PASSNINGAR -->
+  <div class="tab-panel" id="panel-1">
+    <div class="info-card">
+      <h2>Passningar</h2>
+      <p>Passningsövningar.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-6-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-6-1')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Passningsövning – Trianglar</div>
+          <div class="exercise-meta-line">15 min · Passningsteknik</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Tre spelare bildar en triangel (ca 8 m sidor). Passa runt med insidan av foten. Nästa steg: första touch mot nästa hörn, passa sedan.</p>
+          <div class="pitch-container">
+<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow6a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<rect x="40" y="20" width="600" height="385" rx="10" fill="#c8e6c9" opacity="0.32"/>
+<line x1="340" y1="110" x2="168" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
+<line x1="340" y1="110" x2="512" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
+<line x1="168" y1="322" x2="512" y2="322" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
+<polygon points="340,98 330,115 350,115" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="328" y1="115" x2="352" y2="115" stroke="#c8860a" stroke-width="1.5"/>
+<circle cx="340" cy="70" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="340" y="75" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
+<polygon points="168,310 158,327 178,327" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="156" y1="327" x2="180" y2="327" stroke="#c8860a" stroke-width="1.5"/>
+<circle cx="134" cy="328" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="134" y="333" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
+<polygon points="512,310 502,327 522,327" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="500" y1="327" x2="524" y2="327" stroke="#c8860a" stroke-width="1.5"/>
+<circle cx="546" cy="328" r="17" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="546" y="333" text-anchor="middle" font-size="13" font-weight="500" fill="white">C</text>
+<path d="M326 83 L150 316" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6a)" opacity="0.8"/>
+<rect x="210" y="180" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="219" y="193" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
+<path d="M151 334 L529 334" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6a)" opacity="0.8"/>
+<rect x="331" y="340" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="340" y="353" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
+<path d="M530 316 L354 83" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6a)" opacity="0.8"/>
+<rect x="455" y="180" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="464" y="193" text-anchor="middle" font-size="11" font-weight="500" fill="white">3</text>
+<circle cx="323" cy="86" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
+<circle cx="323" cy="86" r="3" fill="#ccc" opacity="0.5"/>
+<rect x="488" y="28" width="146" height="56" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
+<line x1="500" y1="48" x2="530" y2="48" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6a)"/>
+<text font-family="sans-serif" font-size="12" x="538" y="52" fill="#1b5e20">Passning</text>
+<polygon points="515,61 510,71 520,71" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<text font-family="sans-serif" font-size="12" x="538" y="72" fill="#1b5e20">Kon</text>
+</svg>
+          </div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Vriden fot vid passning – insidan fram</li>
+              <li>Rörelsen mot bollen</li>
+              <li>Kommunicera – "JA!" när du vill ha bollen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-6-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-6-2')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Passningsövning – Trianglar 2</div>
+          <div class="exercise-meta-line">15 min · Passning + förflyttning</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">3 spelare ställer upp i en kvadrat med 4 koner – en kon fri. Spelare 1 passar nästa spelare och förflyttar sig sedan till den fria konen. Spelare 2 tar emot, passar vidare och förflyttar sig till fri kon, osv.</p>
+          <div class="pitch-container">
+<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow6b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="arrow-move6b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<rect x="40" y="20" width="600" height="440" rx="10" fill="#c8e6c9" opacity="0.32"/>
+<polygon points="190,78 180,95 200,95" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="178" y1="95" x2="202" y2="95" stroke="#c8860a" stroke-width="1.5"/>
+<polygon points="490,78 480,95 500,95" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="478" y1="95" x2="502" y2="95" stroke="#c8860a" stroke-width="1.5"/>
+<polygon points="190,358 180,375 200,375" fill="#aaa" stroke="#888" stroke-width="1"/>
+<line x1="178" y1="375" x2="202" y2="375" stroke="#888" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" x="190" y="395" text-anchor="middle" fill="#666">Fri kon</text>
+<polygon points="490,358 480,375 500,375" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="478" y1="375" x2="502" y2="375" stroke="#c8860a" stroke-width="1.5"/>
+<rect x="190" y="90" width="300" height="280" rx="4" fill="none" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.5"/>
+<circle cx="162" cy="68" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="162" y="73" text-anchor="middle" font-size="13" font-weight="500" fill="white">1</text>
+<circle cx="185" cy="74" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
+<circle cx="185" cy="74" r="3" fill="#ccc" opacity="0.5"/>
+<circle cx="518" cy="68" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="518" y="73" text-anchor="middle" font-size="13" font-weight="500" fill="white">2</text>
+<circle cx="518" cy="392" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="518" y="397" text-anchor="middle" font-size="13" font-weight="500" fill="white">3</text>
+<path d="M180 72 L498 72" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6b)" opacity="0.85"/>
+<rect x="323" y="56" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="332" y="69" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
+<path d="M526 88 L526 372" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6b)" opacity="0.85"/>
+<rect x="530" y="216" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="539" y="229" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
+<path d="M162 87 L175 355" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-move6b)" opacity="0.85"/>
+<rect x="124" y="207" width="18" height="18" rx="9" fill="#e65100" opacity="0.9"/>
+<text x="133" y="220" text-anchor="middle" font-size="11" font-weight="500" fill="white">A</text>
+<path d="M500 55 Q340 42 208 55" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-move6b)" opacity="0.85"/>
+<rect x="337" y="36" width="18" height="18" rx="9" fill="#e65100" opacity="0.9"/>
+<text x="346" y="49" text-anchor="middle" font-size="11" font-weight="500" fill="white">B</text>
+<rect x="44" y="410" width="370" height="42" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
+<line x1="56" y1="431" x2="80" y2="431" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6b)"/>
+<text font-family="sans-serif" font-size="12" x="86" y="435" fill="#1b5e20">Passning</text>
+<line x1="170" y1="431" x2="194" y2="431" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-move6b)"/>
+<text font-family="sans-serif" font-size="12" x="200" y="435" fill="#1b5e20">Förflyttning (mot fri kon)</text>
+<polygon points="340,422 335,432 345,432" fill="#aaa" stroke="#888" stroke-width="1"/>
+<text font-family="sans-serif" font-size="12" x="352" y="435" fill="#666">Fri kon</text>
+</svg>
+          </div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Passa och rör dig direkt – ingen väntan</li>
+              <li>Ta emot bollen i rörelse</li>
+              <li>Kommunicera – "JA!" när du är redo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-6-3">
+      <div class="exercise-header" onclick="toggleExercise('ex-6-3')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Passningsövning 2&2</div>
+          <div class="exercise-meta-line">15 min · Passningar mellan två spelare</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Två spelare står mittemot varandra med varsin kon, ca 2.5 m mellan. Passa bollen rakt till motspelaren, ta emot och rör dig runt din kon – som ett evigt kretslopp runt konerna.</p>
+          <div class="pitch-container">
+<svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow6c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="arrow-move6c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<rect x="40" y="20" width="600" height="340" rx="10" fill="#c8e6c9" opacity="0.32"/>
+<polygon points="220,190 210,207 230,207" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="208" y1="207" x2="232" y2="207" stroke="#c8860a" stroke-width="1.5"/>
+<polygon points="460,190 450,207 470,207" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
+<line x1="448" y1="207" x2="472" y2="207" stroke="#c8860a" stroke-width="1.5"/>
+<line x1="232" y1="198" x2="448" y2="198" stroke="#5a9a6a" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"/>
+<text font-family="sans-serif" font-size="11" x="340" y="194" text-anchor="middle" fill="#2e7d32" opacity="0.7">~2.5 m</text>
+<circle cx="220" cy="280" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="220" y="285" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
+<circle cx="244" cy="280" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
+<circle cx="244" cy="280" r="3" fill="#ccc" opacity="0.5"/>
+<path d="M252 280 L436 280" fill="none" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6c)" opacity="0.9"/>
+<rect x="326" y="266" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="335" y="279" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
+<circle cx="460" cy="280" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="460" y="285" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
+<path d="M208 268 Q170 230 170 190 Q170 150 208 115" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move6c)" opacity="0.9"/>
+<path d="M472 268 Q510 230 510 190 Q510 150 472 115" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move6c)" opacity="0.9"/>
+<circle cx="220" cy="100" r="18" fill="#1a7a3c" stroke="white" stroke-width="2" opacity="0.45"/>
+<text x="220" y="105" text-anchor="middle" font-size="13" font-weight="500" fill="white" opacity="0.6">A</text>
+<circle cx="460" cy="100" r="18" fill="#1a7a3c" stroke="white" stroke-width="2" opacity="0.45"/>
+<text x="460" y="105" text-anchor="middle" font-size="13" font-weight="500" fill="white" opacity="0.6">B</text>
+<path d="M440 100 L240 100" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrow6c)" opacity="0.5"/>
+<rect x="326" y="84" width="18" height="18" rx="9" fill="#1565c0" opacity="0.5"/>
+<text x="335" y="97" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
+<rect x="44" y="328" width="360" height="26" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
+<line x1="56" y1="341" x2="80" y2="341" stroke="#1565c0" stroke-width="2.2" marker-end="url(#arrow6c)"/>
+<text font-family="sans-serif" font-size="11" x="86" y="345" fill="#1b5e20">Passning</text>
+<line x1="172" y1="341" x2="196" y2="341" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move6c)"/>
+<text font-family="sans-serif" font-size="11" x="202" y="345" fill="#1b5e20">Rörelse runt kon</text>
+</svg>
+          </div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Passa och rör dig direkt – ingen väntan</li>
+              <li>Ta emot bollen i rörelse</li>
+              <li>Håll ett jämnt tempo i kretsloppet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-pass-4">
+      <div class="exercise-header" onclick="toggleExercise('ex-pass-4')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Kliv ut kvadraten</div>
+          <div class="exercise-meta-line">Passningar · Rörelsekombination</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Två led med spelare på varsin sida om en kvadrat (2×2 m) i mitten. Spelare möter spelare på motsatt sida, tar emot passning inne i kvadraten och passar tillbaka. Kliver sedan ut ur kvadraten åt sidan, får tillbaka passning och passar till ledet hen startade ifrån.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Ta emot bollen i rörelse – kliv in i kvadraten</li>
+              <li>Passa och kliv ut direkt – ingen väntan</li>
+              <li>Träna på att kliva ut åt båda håll</li>
+              <li>Använd båda fötterna</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 1MOT1 -->
+  <div class="tab-panel" id="panel-2">
+    <div class="info-card">
+      <h2>1mot1</h2>
+      <p>1mot1-övningar.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-6b-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-6b-2')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">1v1 försvar – rätt vinkel</div>
+          <div class="exercise-meta-line">15 min · Försvarsteknik</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">En anfallare försöker nå en linje 15 m bort. Försvararen bromsar och styr anfallaren åt sidan. Byt roller.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Sänk tyngdpunkten, korta steg</li>
+              <li>Styr anfallaren mot kanten</li>
+              <li>Vänta på rätt tillfälle att ta bollen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-6b-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-6b-1')">
         <div class="exercise-header-text">
           <div class="exercise-title">1 mot 1 med pass, avslut på mål</div>
           <div class="exercise-meta-line">15 min · Vinna duell</div>
@@ -717,10 +745,10 @@
           <div class="pitch-container">
 <svg width="100%" viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <marker id="arrow5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="arrow6b1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
-  <marker id="arrow-move5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+  <marker id="arrow-move6b1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
 </defs>
@@ -740,15 +768,15 @@
 <text font-family="sans-serif" font-size="11" x="352" y="305" fill="#2e7d32" opacity="0.8">~8 m</text>
 <circle cx="340" cy="160" r="18" fill="#555" stroke="white" stroke-width="2"/>
 <text x="340" y="165" text-anchor="middle" font-size="12" font-weight="500" fill="white">T</text>
-<path d="M265 378 L328 232" fill="none" stroke="#1a7a3c" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move5)" opacity="0.8"/>
-<path d="M415 378 L352 232" fill="none" stroke="#1a7a3c" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move5)" opacity="0.8"/>
-<path d="M332 212 L340 178" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow5)" opacity="0.9"/>
+<path d="M265 378 L328 232" fill="none" stroke="#1a7a3c" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move6b1)" opacity="0.8"/>
+<path d="M415 378 L352 232" fill="none" stroke="#1a7a3c" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move6b1)" opacity="0.8"/>
+<path d="M332 212 L340 178" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6b1)" opacity="0.9"/>
 <rect x="322" y="186" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
 <text x="331" y="199" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
-<path d="M326 166 Q290 200 282 240" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow5)" opacity="0.9"/>
+<path d="M326 166 Q290 200 282 240" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6b1)" opacity="0.9"/>
 <rect x="288" y="196" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
 <text x="297" y="209" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
-<path d="M280 252 Q270 310 295 368" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move5)" opacity="0.9"/>
+<path d="M280 252 Q270 310 295 368" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move6b1)" opacity="0.9"/>
 <rect x="252" y="300" width="18" height="18" rx="9" fill="#e65100" opacity="0.9"/>
 <text x="261" y="313" text-anchor="middle" font-size="11" font-weight="500" fill="white">3</text>
 <rect x="44" y="36" width="220" height="84" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
@@ -756,9 +784,9 @@
 <text font-family="sans-serif" font-size="12" x="76" y="60" fill="#333">Spelare (A / B)</text>
 <circle cx="60" cy="78" r="9" fill="#555" stroke="white" stroke-width="1.5"/>
 <text font-family="sans-serif" font-size="12" x="76" y="82" fill="#333">Tränare (T)</text>
-<line x1="50" y1="100" x2="74" y2="100" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow5)"/>
+<line x1="50" y1="100" x2="74" y2="100" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6b1)"/>
 <text font-family="sans-serif" font-size="12" x="80" y="104" fill="#333">Passning</text>
-<line x1="50" y1="116" x2="74" y2="116" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move5)"/>
+<line x1="50" y1="116" x2="74" y2="116" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move6b1)"/>
 <text font-family="sans-serif" font-size="12" x="80" y="120" fill="#333">Rörelse</text>
 </svg>
           </div>
@@ -774,9 +802,17 @@
       </div>
     </div>
 
-    <div class="exercise-card" id="ex-1-3">
-      <div class="exercise-header" onclick="toggleExercise('ex-1-3')">
-        <div class="exercise-number">3</div>
+  </div>
+
+  <!-- AVSLUT/SKOTT -->
+  <div class="tab-panel" id="panel-3">
+    <div class="info-card">
+      <h2>Avslut/skott</h2>
+      <p>Avsluts- och skottövningar.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-6a-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-6a-1')">
         <div class="exercise-header-text">
           <div class="exercise-title">Finishing drill</div>
           <div class="exercise-meta-line">15 min · Avslut efter kombinationsspel</div>
@@ -789,10 +825,10 @@
           <div class="pitch-container">
 <svg width="100%" viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <marker id="arrow6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="arrow6aa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
-  <marker id="arrowm6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+  <marker id="arrowm6aa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
 </defs>
@@ -815,36 +851,36 @@
 <circle cx="340" cy="416" r="14" fill="#1a7a3c" stroke="white" stroke-width="1.5" opacity="0.55"/>
 <circle cx="340" cy="444" r="14" fill="#1a7a3c" stroke="white" stroke-width="1.5" opacity="0.3"/>
 <text font-family="sans-serif" font-size="11" x="340" y="466" text-anchor="middle" fill="#555" opacity="0.6">kö</text>
-<path d="M340 362 L340 262" fill="none" stroke="#1565c0" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrowm6)" opacity="0.9"/>
+<path d="M340 362 L340 262" fill="none" stroke="#1565c0" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrowm6aa)" opacity="0.9"/>
 <rect x="346" y="300" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
 <text x="355" y="313" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
-<path d="M338 260 Q310 320 340 360" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6)" opacity="0.85"/>
+<path d="M338 260 Q310 320 340 360" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6aa)" opacity="0.85"/>
 <rect x="296" y="300" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
 <text x="305" y="313" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
-<path d="M358 370 Q430 330 490 270" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrowm6)" opacity="0.85"/>
+<path d="M358 370 Q430 330 490 270" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrowm6aa)" opacity="0.85"/>
 <rect x="420" y="298" width="18" height="18" rx="9" fill="#e65100" opacity="0.9"/>
 <text x="429" y="311" text-anchor="middle" font-size="11" font-weight="500" fill="white">3</text>
 <circle cx="500" cy="258" r="18" fill="#1565c0" stroke="white" stroke-width="2" opacity="0.5"/>
 <text x="500" y="263" text-anchor="middle" font-size="11" font-weight="500" fill="white" opacity="0.8">1</text>
-<path d="M356 372 L484 262" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6)" opacity="0.85"/>
+<path d="M356 372 L484 262" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6aa)" opacity="0.85"/>
 <rect x="436" y="302" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
 <text x="445" y="315" text-anchor="middle" font-size="11" font-weight="500" fill="white">4</text>
-<path d="M484 244 L148 164" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6)" opacity="0.85"/>
+<path d="M484 244 L148 164" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6aa)" opacity="0.85"/>
 <rect x="300" y="188" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
 <text x="309" y="201" text-anchor="middle" font-size="11" font-weight="500" fill="white">5</text>
-<path d="M148 148 L362 158" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6)" opacity="0.85"/>
+<path d="M148 148 L362 158" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6aa)" opacity="0.85"/>
 <rect x="234" y="140" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
 <text x="243" y="153" text-anchor="middle" font-size="11" font-weight="500" fill="white">6</text>
-<path d="M492 244 Q450 200 378 162" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrowm6)" opacity="0.75"/>
-<path d="M370 150 L348 80" fill="none" stroke="#c0392b" stroke-width="2.2" marker-end="url(#arrow6)" opacity="0.9"/>
+<path d="M492 244 Q450 200 378 162" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrowm6aa)" opacity="0.75"/>
+<path d="M370 150 L348 80" fill="none" stroke="#c0392b" stroke-width="2.2" marker-end="url(#arrow6aa)" opacity="0.9"/>
 <rect x="354" y="104" width="18" height="18" rx="9" fill="#c0392b" opacity="0.9"/>
 <text x="363" y="117" text-anchor="middle" font-size="11" font-weight="500" fill="white">7</text>
 <rect x="44" y="400" width="380" height="60" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
-<line x1="56" y1="418" x2="78" y2="418" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6)"/>
+<line x1="56" y1="418" x2="78" y2="418" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow6aa)"/>
 <text font-family="sans-serif" font-size="12" x="84" y="422" fill="#1b5e20">Passning / rörelse med boll</text>
-<line x1="56" y1="438" x2="78" y2="438" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrowm6)"/>
+<line x1="56" y1="438" x2="78" y2="438" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrowm6aa)"/>
 <text font-family="sans-serif" font-size="12" x="84" y="442" fill="#1b5e20">Rörelse utan boll</text>
-<line x1="56" y1="452" x2="78" y2="452" stroke="#c0392b" stroke-width="2.2" marker-end="url(#arrow6)"/>
+<line x1="56" y1="452" x2="78" y2="452" stroke="#c0392b" stroke-width="2.2" marker-end="url(#arrow6aa)"/>
 <text font-family="sans-serif" font-size="12" x="84" y="456" fill="#1b5e20">Avslut</text>
 <polygon points="228,434 223,444 233,444" fill="#f0b429" stroke="#c8860a" stroke-width="1"/>
 <text font-family="sans-serif" font-size="12" x="240" y="442" fill="#1b5e20">Kon</text>
@@ -862,19 +898,17 @@
       </div>
     </div>
 
-    <div class="exercise-card" id="ex-1-4">
-      <div class="exercise-header" onclick="toggleExercise('ex-1-4')">
-        <div class="exercise-number">4</div>
+    <div class="exercise-card" id="ex-6a-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-6a-2')">
         <div class="exercise-header-text">
           <div class="exercise-title">1v1 mot målvakt</div>
-          <div class="exercise-meta-line">15 min · Avslut & målvakt</div>
+          <div class="exercise-meta-line">15 min · Avslut &amp; målvakt</div>
         </div>
         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="exercise-body">
         <div class="exercise-body-inner">
           <p class="exercise-description">Spelare startar 20 m från mål, dribblar fram och avslutar mot målvakt. Fokus: lugn inför avslut, välj sida tidigt.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
           <div class="coaching-points">
             <h4>Coachingpunkter</h4>
             <ul>
@@ -887,180 +921,233 @@
       </div>
     </div>
 
-    <div class="exercise-card" id="ex-1-5">
-      <div class="exercise-header" onclick="toggleExercise('ex-1-5')">
-        <div class="exercise-number">5</div>
+  </div>
+
+  <!-- POSSESSION -->
+  <div class="tab-panel" id="panel-4">
+    <div class="info-card">
+      <h2>Possession</h2>
+      <p>Possessionövningar.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-7-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-7-1')">
         <div class="exercise-header-text">
-          <div class="exercise-title">Avslutande spel</div>
+          <div class="exercise-title">Rondo 4v1</div>
+          <div class="exercise-meta-line">15 min · Bollhållning</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Fyra spelare på utsidan, en i mitten. Håll bollen undan mittspelaren. Den som tappar bollen går in i mitten.</p>
+          <div class="pitch-container">
+<svg width="100%" viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow7a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<rect x="40" y="30" width="600" height="400" rx="10" fill="#c8e6c9" opacity="0.32"/>
+<rect x="190" y="90" width="300" height="280" rx="4" fill="none" stroke="#5a9a6a" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.6"/>
+<circle cx="340" cy="72" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="340" y="77" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
+<circle cx="172" cy="230" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="172" y="235" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
+<circle cx="340" cy="388" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="340" y="393" text-anchor="middle" font-size="13" font-weight="500" fill="white">C</text>
+<circle cx="508" cy="230" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="508" y="235" text-anchor="middle" font-size="13" font-weight="500" fill="white">D</text>
+<circle cx="340" cy="230" r="18" fill="#c0392b" stroke="white" stroke-width="2"/>
+<text x="340" y="235" text-anchor="middle" font-size="13" font-weight="500" fill="white">M</text>
+<path d="M323 82 L190 216" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow7a)" opacity="0.75"/>
+<path d="M190 248 L323 374" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow7a)" opacity="0.75" stroke-dasharray="6 4"/>
+<circle cx="318" cy="76" r="7" fill="white" stroke="#aaa" stroke-width="1"/>
+<circle cx="318" cy="76" r="3" fill="#ccc" opacity="0.5"/>
+<path d="M340 212 L340 108" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow7a)" opacity="0.8"/>
+<rect x="468" y="36" width="158" height="90" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
+<circle cx="484" cy="58" r="9" fill="#1a7a3c" stroke="white" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="12" x="500" y="62" fill="#1b5e20">Yterspelare (A–D)</text>
+<circle cx="484" cy="82" r="9" fill="#c0392b" stroke="white" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="12" x="500" y="86" fill="#1b5e20">Mittspelare (M)</text>
+<line x1="474" y1="104" x2="496" y2="104" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow7a)"/>
+<text font-family="sans-serif" font-size="12" x="500" y="108" fill="#1b5e20">Passning</text>
+</svg>
+          </div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Spela snabbt – max två touches</li>
+              <li>Rörelse och friläggning längs kanten</li>
+              <li>Mittspelaren: kompakt och aggressiv press</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-poss-3">
+      <div class="exercise-header" onclick="toggleExercise('ex-poss-3')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Engelska kvadraten</div>
+          <div class="exercise-meta-line">Possession · Press och bollhållning</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">En stor rektangel delas in i tre zoner – den mittersta zonen är ungefär hälften så stor som de två sidzonerna. Tre grupper á 4 spelare, en grupp per zon. Spelarna i sidzonerna passar bollen inom sin grupp ett bestämt antal gånger och spelar sedan över till andra sidan. Samtidigt pressar 1–2 spelare från mittgruppen in i sidzonen och försöker ta bollen. Lyckas de ta bollen och passa till någon i sin grupp byter de plats – mittgruppen går till sidan och sidgruppen tar över mitten.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Håll bollen snurrande tills rätt tillfälle att spela över</li>
+              <li>Kom överens om antal passningar innan ni spelar över</li>
+              <li>Mittspelarna: pressa kompakt och koordinerat</li>
+              <li>Välj rätt tillfälle att spela lång boll – inte under press</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-poss-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-poss-2')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Rondo i yta</div>
+          <div class="exercise-meta-line">Possession · Bollhållning i fri yta</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Behåll boll inom sitt lag genom att röra sig fritt inom en yta och passa bollen mellan varandra. Försvarare försöker ta bollen och spela ut ur ytan (gärna mot ett mål eller tränare). Poäng ges efter x antal passningar laget klarar av. Byt försvarare efter en stund.</p>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Rör dig hela tiden – skapa friläggningar för bollinnehavaren</li>
+              <li>Spela snabbt – undvik onödiga touches</li>
+              <li>Försvarare pressar direkt vid bollförlust</li>
+              <li>Går bra att variera antal spelare (2v1, 3v1, 4v1, 5v2 osv)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SMÅLAGSSPEL -->
+  <div class="tab-panel" id="panel-5">
+    <div class="info-card">
+      <h2>Smålagsspel</h2>
+      <p>Smålagsspel.</p>
+    </div>
+
+    <div class="exercise-card" id="ex-8-2">
+      <div class="exercise-header" onclick="toggleExercise('ex-8-2')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">1 mot 1 med pass, avslut på mål</div>
+          <div class="exercise-meta-line">15 min · Vinna duell</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-body-inner">
+          <p class="exercise-description">Två spelare startar på varsin sida av målet. En boll placeras 8 m framåt – den spelare som når bollen först blir anfallare, den andre försvarare. Anfallaren spelar boll mot tränaren som spelar tillbaka, anfallaren vänder mot mål och det blir 1 mot 1.</p>
+          <div class="pitch-container">
+<svg width="100%" viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow8a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="arrow-move8a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<rect x="40" y="20" width="600" height="420" rx="10" fill="#c8e6c9" opacity="0.32"/>
+<rect x="295" y="390" width="90" height="18" rx="2" fill="none" stroke="#333" stroke-width="2.5"/>
+<line x1="295" y1="390" x2="275" y2="408" stroke="#333" stroke-width="2"/>
+<line x1="385" y1="390" x2="405" y2="408" stroke="#333" stroke-width="2"/>
+<circle cx="340" cy="375" r="16" fill="#e8a000" stroke="white" stroke-width="2"/>
+<text x="340" y="380" text-anchor="middle" font-size="11" font-weight="500" fill="white">MV</text>
+<circle cx="255" cy="395" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="255" y="400" text-anchor="middle" font-size="13" font-weight="500" fill="white">A</text>
+<circle cx="425" cy="395" r="18" fill="#1a7a3c" stroke="white" stroke-width="2"/>
+<text x="425" y="400" text-anchor="middle" font-size="13" font-weight="500" fill="white">B</text>
+<circle cx="340" cy="220" r="8" fill="white" stroke="#aaa" stroke-width="1.5"/>
+<circle cx="340" cy="220" r="3.5" fill="#ccc" opacity="0.6"/>
+<line x1="340" y1="228" x2="340" y2="375" stroke="#5a9a6a" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"/>
+<text font-family="sans-serif" font-size="11" x="352" y="305" fill="#2e7d32" opacity="0.8">~8 m</text>
+<circle cx="340" cy="160" r="18" fill="#555" stroke="white" stroke-width="2"/>
+<text x="340" y="165" text-anchor="middle" font-size="12" font-weight="500" fill="white">T</text>
+<path d="M265 378 L328 232" fill="none" stroke="#1a7a3c" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move8a)" opacity="0.8"/>
+<path d="M415 378 L352 232" fill="none" stroke="#1a7a3c" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move8a)" opacity="0.8"/>
+<path d="M332 212 L340 178" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow8a)" opacity="0.9"/>
+<rect x="322" y="186" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="331" y="199" text-anchor="middle" font-size="11" font-weight="500" fill="white">1</text>
+<path d="M326 166 Q290 200 282 240" fill="none" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow8a)" opacity="0.9"/>
+<rect x="288" y="196" width="18" height="18" rx="9" fill="#1565c0" opacity="0.9"/>
+<text x="297" y="209" text-anchor="middle" font-size="11" font-weight="500" fill="white">2</text>
+<path d="M280 252 Q270 310 295 368" fill="none" stroke="#e65100" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-move8a)" opacity="0.9"/>
+<rect x="252" y="300" width="18" height="18" rx="9" fill="#e65100" opacity="0.9"/>
+<text x="261" y="313" text-anchor="middle" font-size="11" font-weight="500" fill="white">3</text>
+<rect x="44" y="36" width="220" height="84" rx="8" fill="white" opacity="0.85" stroke="#c8e6c9" stroke-width="1"/>
+<circle cx="60" cy="56" r="9" fill="#1a7a3c" stroke="white" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="12" x="76" y="60" fill="#333">Spelare (A / B)</text>
+<circle cx="60" cy="78" r="9" fill="#555" stroke="white" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="12" x="76" y="82" fill="#333">Tränare (T)</text>
+<line x1="50" y1="100" x2="74" y2="100" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow8a)"/>
+<text font-family="sans-serif" font-size="12" x="80" y="104" fill="#333">Passning</text>
+<line x1="50" y1="116" x2="74" y2="116" stroke="#e65100" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-move8a)"/>
+<text font-family="sans-serif" font-size="12" x="80" y="120" fill="#333">Rörelse</text>
+</svg>
+          </div>
+          <div class="coaching-points">
+            <h4>Coachingpunkter</h4>
+            <ul>
+              <li>Snabb acceleration för att komma först till bollen</li>
+              <li>Anfallaren vänder efter pass till tränare för att komma rättvänd mot mål</li>
+              <li>Försvaren försöker styra ut anfallaren mot sidan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" id="ex-8-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-8-1')">
+        <div class="exercise-header-text">
+          <div class="exercise-title">Spel 3v3</div>
           <div class="exercise-meta-line">15 min · Matchspel</div>
         </div>
         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="exercise-body">
         <div class="exercise-body-inner">
-          <p class="exercise-description">Fritt spel 4v4 med mål. Poäng räknas dubbelt om laget skjuter inom 5 sekunder efter att ha tagit bollen.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
+          <p class="exercise-description">3v3 eller 4v4 på liten plan med mål. Fritt spel – låt barnen hitta lösningar. Tränaren coachar utifrån dagens tema.</p>
           <div class="coaching-points">
             <h4>Coachingpunkter</h4>
             <ul>
-              <li>Snabbt spel framåt</li>
-              <li>Var modig – skjut!</li>
+              <li>Tillämpa dagens teknik i spelet</li>
+              <li>Uppmuntra dribbel och risktagning</li>
+              <li>Positiv feedback – fokus på försök</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
-  <!-- PASS 3 -->
-  <div class="tab-panel" id="panel-2">
+  <!-- LEKAR -->
+  <div class="tab-panel" id="panel-6">
     <div class="info-card">
-      <h2>Pass 3 – Försvar och press</h2>
-      <div class="info-meta">
-        <span>⏱ 60 min</span>
-        <span>👟 9 spelare</span>
-        <span>📍 Plan B</span>
-      </div>
-      <p>Introduktion till att försvara som ett lag. Enkel press i rätt situation och hur man vinner boll.</p>
+      <h2>Lekar</h2>
+      <p>Lekar och tävlingsövningar.</p>
     </div>
 
-    <div class="exercise-card" id="ex-2-1">
-      <div class="exercise-header" onclick="toggleExercise('ex-2-1')">
-        <div class="exercise-number">1</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Uppvärmning – Tagglek med boll</div>
-          <div class="exercise-meta-line">10 min · Rörlighet</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Alla dribblar i ett område. En spelare utan boll försöker knuffa ut andras bollar. Om din boll åker ut är du nästa "taggen".</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Skydda bollen med kroppen</li>
-              <li>Håll koll på läget runt dig</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-2-2">
-      <div class="exercise-header" onclick="toggleExercise('ex-2-2')">
-        <div class="exercise-number">2</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">1v1 försvar – rätt vinkel</div>
-          <div class="exercise-meta-line">15 min · Försvarsteknik</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">En anfallare försöker nå en linje 15 m bort. Försvararen bromsar och styr anfallaren åt sidan. Byt roller.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Sänk tyngdpunkten, korta steg</li>
-              <li>Styr anfallaren mot kanten</li>
-              <li>Vänta på rätt tillfälle att ta bollen</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-2-3">
-      <div class="exercise-header" onclick="toggleExercise('ex-2-3')">
-        <div class="exercise-number">3</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">2v2 – kompakt press</div>
-          <div class="exercise-meta-line">15 min · Lagförsvar</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Två försvarare mot två anfallare i ett litet område. Försvararlaget jobbar tillsammans: en pressar, en täcker.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Kommunicera – "jag tar!", "täck!"</li>
-              <li>Håll ihop – inga stora luckor</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-2-4">
-      <div class="exercise-header" onclick="toggleExercise('ex-2-4')">
-        <div class="exercise-number">4</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Avslutande spel – press-regler</div>
-          <div class="exercise-meta-line">15 min · Matchspel</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">4v4 med regeln att laget utan boll alltid ska ha minst en spelare som aktivt pressar bollinnehavaren.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Press direkt vid bollförlust</li>
-              <li>Samarbeta – ingen försvarar ensam</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PASS 4 -->
-  <div class="tab-panel" id="panel-3">
-    <div class="info-card">
-      <h2>Pass 4 – Lek och matchspel</h2>
-      <div class="info-meta">
-        <span>⏱ 60 min</span>
-        <span>👟 9 spelare</span>
-        <span>📍 Plan A</span>
-      </div>
-      <p>Roliga tävlingar och mycket matchspel. Låt barnen ta egna beslut och njuta av spelet.</p>
-    </div>
-
-    <div class="exercise-card" id="ex-3-1">
-      <div class="exercise-header" onclick="toggleExercise('ex-3-1')">
-        <div class="exercise-number">1</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Uppvärmning – Målvaktslek</div>
-          <div class="exercise-meta-line">10 min · Rolig rörelse</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Tränaren slår bollar mot mål, spelarna turas om att rädda. Lägg till utmaningar: räddning med höger hand, hopp, etc.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Kul stämning – heja varandra!</li>
-              <li>Fokus och reaktion</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-3-2">
-      <div class="exercise-header" onclick="toggleExercise('ex-3-2')">
-        <div class="exercise-number">2</div>
+    <div class="exercise-card" id="ex-lek-1">
+      <div class="exercise-header" onclick="toggleExercise('ex-lek-1')">
         <div class="exercise-header-text">
           <div class="exercise-title">Tävling – Precisionsskjutning</div>
           <div class="exercise-meta-line">15 min · Avslut</div>
@@ -1070,7 +1157,6 @@
       <div class="exercise-body">
         <div class="exercise-body-inner">
           <p class="exercise-description">Skjut mot markeringar i hörnen på mål. Poäng för träff. Tre skott vardera – vem får flest poäng?</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
           <div class="coaching-points">
             <h4>Coachingpunkter</h4>
             <ul>
@@ -1082,53 +1168,6 @@
       </div>
     </div>
 
-    <div class="exercise-card" id="ex-3-3">
-      <div class="exercise-header" onclick="toggleExercise('ex-3-3')">
-        <div class="exercise-number">3</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Matchspel 1 – 3v3</div>
-          <div class="exercise-meta-line">15 min · Spel</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Två matcher parallellt på halva planen. Fritt spel – tränaren coachar från sidan med positiv feedback.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Uppmuntra risktagning</li>
-              <li>Fira mål och bra aktioner</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card" id="ex-3-4">
-      <div class="exercise-header" onclick="toggleExercise('ex-3-4')">
-        <div class="exercise-number">4</div>
-        <div class="exercise-header-text">
-          <div class="exercise-title">Matchspel 2 – Stor plan</div>
-          <div class="exercise-meta-line">15 min · Spel</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-body-inner">
-          <p class="exercise-description">Hela gruppen spelar på stor plan med inbytare. Avsluta passet med en gemensam genomgång och beröm.</p>
-          <div class="pitch-placeholder">⚽ Planritning läggs till här</div>
-          <div class="coaching-points">
-            <h4>Coachingpunkter</h4>
-            <ul>
-              <li>Alla får speltid</li>
-              <li>Lyft det positiva från hela passet</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
 </main>
